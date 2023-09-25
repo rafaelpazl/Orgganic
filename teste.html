@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Site com Efeito de Texto Redimensionável</title>
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    height: 10000px;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    width: 100vw;
+}
+
+#logo {
+    font-size: 200px; /* Tamanho inicial do texto */
+    transition: font-size 0.5s ease-in-out; /* Adiciona uma transição suave */
+}
+
+/* Estilo para o conteúdo do site (adicione seus estilos aqui) */
+
+</style>
+<body>
+    <header>
+        <h1 id="logo">Orgganic</h1>
+    </header>
+    <main>
+        <!-- Conteúdo do site aqui -->
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+    const logo = document.getElementById("logo");
+
+    // Função para redimensionar o texto com base na posição de rolagem
+    function resizeLogo() {
+        const scrollTop = window.scrollY;
+        const newSize = 48 - scrollTop * 0.1; // Ajuste o valor como desejado
+        logo.style.fontSize = newSize + "px";
+    }
+
+    // Adicionar um ouvinte de rolagem para chamar a função de redimensionamento
+    window.addEventListener("scroll", resizeLogo);
+});
+
+    </script>
+</body>
+</html>
