@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+
+.btnOpenModal {
+  font-size: x-large;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: blueviolet;
+  color: white;
+  cursor: pointer;
+}
+
+hr {
+  border: 0px;
+  border-top: 1px solid lightgray;
+}
+
+.modal-container {
+  width: 100vw;
+  position: fixed;
+  top: 30px;
+  display: none;
+  z-index: 999;
+  justify-content: center;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  background-color: white;
+  border-radius: 10px;
+  width: 50%;
+}
+
+.active {
+  display: flex;
+}
+
+.active .modal {
+  animation: modal .4s;
+}
+
+@keyframes modal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -60px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+span {
+  margin: 10px auto;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btns button {
+  font-size: medium;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+}
+
+.btnOK {
+ background-color: blue!important;
+}
+
+.btnClose {
+  background-color: brown!important;
+ }
+
+ @media (max-width: 500px) {
+  .modal {
+    padding: 10px;
+    width: 80%;
+  }   
+
+  span, .btns button {
+    font-size: smaller;
+  }
+ }
+</style>
+<body>
+  <button class="btnOpenModal" onclick="openModal()">Open Modal</button>
+
+  <div class="modal-container">
+    <div class="modal">
+      <h2>Info</h2>
+      <hr />
+      <span>
+        Lorem Ipsum is simply dummy text of the printing and typesetting 
+        industry. Lorem Ipsum has been the industry's standard dummy text
+         ever since the 1500s, when an unknown printer took a galley of 
+         type and scrambled it to make a type specimen book. 
+      </span>
+      <hr />
+      <div class="btns">
+        <button class="btnOK" onclick="closeModal()">OK</button>
+        <button class="btnClose" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+  
+  <script> const modal = document.querySelector('.modal-container')
+
+    function openModal() {
+      modal.classList.add('active')
+    }
+    
+    function closeModal() {
+      modal.classList.remove('active')
+    } </script>
+</body>
+</html>
