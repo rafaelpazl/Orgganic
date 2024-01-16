@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 
   $('.color-choose input').on('click', function() {
@@ -22,3 +23,6 @@ function closeModal() {
   modal.classList.remove('active')
 }
 /* end modal */
+ function logotipoHead(){
+        window.location.href = "/pages/index.html";
+    }

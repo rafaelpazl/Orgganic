@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
+body{
+    background-color: #000!important;
+}
+.top-nav{
+    background-color: #fff!important;
+}
+.login{
+    display: flex;
+    justify-content: center;
+    padding: 5% 0;
+}
+.row{
+    width: 80%;
+    border-radius: 15px;
+    margin-top: 10%;
+}
+.col-md-6 {
+    padding: 0!important;
+    
+}
+.content-login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff !important;
+    padding: 10%!important;
+}
+
+.img-login{
+    background-image: url(../images/login-image.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+   
+    
+}
+.img-login-name{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.479);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: 'Rubik Glitch', system-ui;
+}
+.img-login-name h2{
+    font-size: 600%;
+}
+._51mz{
+    width: 500px!important;
+}

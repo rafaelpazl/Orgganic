@@ -35,12 +35,16 @@ body{
   position: absolute;
   opacity: 0;
   transition: all 0.3s ease;
+  max-width: 600px;
 }
 
 .left-column img.active {
   z-index: -999999;
   opacity: 1;
   max-width: 600px;
+}
+.left-column img.active:hover {
+  
 }
 
 
@@ -67,7 +71,7 @@ body{
 .product-description p {
   font-size: 16px;
   font-weight: 300;
-  color: #86939E;
+  color: #000;
   line-height: 24px;
 }
 
@@ -76,7 +80,7 @@ body{
 .cable-config span {
   font-size: 14px;
   font-weight: 400;
-  color: #86939E;
+  color: #000;
   margin-bottom: 20px;
   display: inline-block;
 }
@@ -108,15 +112,20 @@ body{
   border: 2px solid #FFFFFF;
   box-shadow: 0 1px 3px 0 rgba(0,0,0,0.33);
 }
+.color-choose input[type="radio"]+label span:hover {
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.33);
+  transition: 0.3s;
+}
+
 
 .color-choose input[type="radio"]#red + label span {
-  background-color: #C91524;
+  background-color: #000;
 }
 .color-choose input[type="radio"]#blue + label span {
-  background-color: #314780;
+  background-color: #fff;
 }
 .color-choose input[type="radio"]#black + label span {
-  background-color: #323232;
+  background-color: #8E002F;
 }
 
 .color-choose input[type="radio"]:checked + label span {
@@ -144,7 +153,7 @@ body{
 .cable-choose button:hover,
 .cable-choose button:active,
 .cable-choose button:focus {
-  border: 2px solid #86939E;
+  border: 2px solid #000;
   outline: none;
 }
 
@@ -220,9 +229,11 @@ body{
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 350px;
+    height: 680px;
   }
 }
+
+
 /* end of the section product*/
 .rTable {
   border: 1px solid #000;
