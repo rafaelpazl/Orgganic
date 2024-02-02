@@ -9,9 +9,6 @@
 </head>
 
 <body>
-
-
-
     <script src="https://www.mercadopago.com.br/integrations/v1/web-payment-checkout.js" data-preference-id="392592367-e5c98db1-a669-4d01-bde3-d75829ba1dbc" data-source="button">
     </script>
 </body>
