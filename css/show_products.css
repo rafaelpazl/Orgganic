@@ -1,0 +1,81 @@
+body{
+    font-family: "Open Sans", sans-serif;
+}
+.shop_section .img-box img {
+    border-radius: 15px;
+    width: 100%;
+    height: auto;
+  }
+  
+  .shop_section .box {
+    background-color: #f9f9f9;
+    position: relative;
+    padding: 15px;
+    margin-top: 25px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .shop_section .box:hover {
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .shop_section .detail-box {
+    margin-top: 10px;
+  }
+  
+  .shop_section .detail-box h6 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+  }
+  
+  .shop_section .detail-box h6 span {
+    color: #db4f66;
+  }
+  
+  .shop_section .new {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #db4f66;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .shop_section .new span {
+    font-weight: bold;
+  }
+  
+  .shop_section .box a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .shop_section .box a:hover {
+    text-decoration: none;
+  }
+  
+  .shop_section .btn-box {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .shop_section .btn-box a {
+    display: inline-block;
+    padding: 10px 40px;
+    background-color: #db4f66;
+    color: #ffffff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .shop_section .btn-box a:hover {
+    background-color: #333333;
+  }
+  

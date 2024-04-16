@@ -792,19 +792,6 @@ body{
   }
 /* end trasition img index */
 
-.img2-product{
-  opacity: 1;
-  position: absolute;
-  transition: opacity 0.5s ease; 
-}
-
-.product .left-column .img:hover .img1-product{
-  opacity: 1;
-    
-  }
-  .product .left-column:hover .img2-product{
-    opacity: 1;
-  }
 @media (min-width: 1000px) 
 {.shop_section .col-sm-6{
   width: 30%;
