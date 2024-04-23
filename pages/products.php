@@ -1,6 +1,6 @@
 <?php
 include_once('../backend/config.php');
-
+$contains_product = false; 
 // Verifique se a conexão com o banco de dados foi estabelecida corretamente
 if ($conexao) {
     // Verifique se o ID do produto está presente na URL
@@ -29,9 +29,8 @@ if ($conexao) {
                 $discount = $row['discount'];
                 $main_image = $row['main_image'];
                 $additional_images = explode(",", $row['additional_images']); // Converta as imagens adicionais em um array
-            } else {
-                // Produto não encontrado com o ID fornecido
-                echo "Produto não encontrado";
+                
+                $contains_product = true; // Definir como true se o produto for encontrado
             }
 
             // Feche o statement
@@ -47,6 +46,12 @@ if ($conexao) {
 
     // Feche a conexão com o banco de dados
     mysqli_close($conexao);
+
+    // Verifique se o produto não foi encontrado e redirecione para a página de erro
+    if (!$contains_product) {
+        header("Location: error.php");
+        exit();
+    }
 } else {
     // Trate o erro de conexão com o banco de dados
     echo "Erro ao conectar ao banco de dados: " . mysqli_connect_error();
@@ -93,40 +98,25 @@ if ($conexao) {
   <!-- Add Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Owl Carousel stylesheet -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
   <!-- Add Bootstrap JS and Popper.js (required for Bootstrap) -->
-  
   <link href="../css/modal.css" rel="stylesheet"/>
-  </head>
   <style>
-    
-      body{
-        overflow-x: hidden!important;
-      }
-      .product-price strong{
-        margin-left: 10px;
-      }
-      .main-image{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 10px;
-      }
-      #mainImage{
-        width: 60%;
-      }
-      .owl-carousel .owl-item img {
-    display: block; 
-}
-@media (max-width: 767px) {
-    .main-image{
+  .cart-animation {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        z-index: 9999;
         display: none;
     }
-    }
   </style>
+  </head>
   <body>
     <div class="texthead">
       PARCELAMENTO NO CARTÃO EM ATÉ 3X SEM JUROS
@@ -148,7 +138,7 @@ if ($conexao) {
       <div class="container nav-containter">
        <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
            <div class="container">
-               <a class="navbar-brand " href="/pages//pages/index.html"><img class="logo-nav" src="../images/LOGOO.png" height="90px" alt="Pazweb"/></a>
+               <a class="navbar-brand " href="index.php"><img class="logo-nav" src="../images/LOGOO.png" height="90px" alt="Pazweb"/></a>
                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                    Menu
                    <i class="fas fa-bars ms-1"></i>
@@ -157,8 +147,8 @@ if ($conexao) {
                <div class="collapse navbar-collapse" id="navbarResponsive">
                   <div class="float-left">
                      <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0 l-flex">
-                         <li class="nav-item"><a class="nav-link" href="index.html#shop_section">Panos</a></li>
-                         <li class="nav-item"><a class="nav-link" href="index.html#saving_section">OGGNC</a></li>
+                         <li class="nav-item"><a class="nav-link" href="index.php#shop_section">Panos</a></li>
+                         <li class="nav-item"><a class="nav-link" href="index.php#saving_section">OGGNC</a></li>
                          <li class="nav-item dropdown">
                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                              Fala com nóis!
@@ -201,47 +191,88 @@ if ($conexao) {
    </div>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <!--  End navbar  -->
-   
-<!-- Se as informações do produto estiverem disponíveis, exiba-as -->
-<?php if (isset($title) && isset($description) && isset($price)): ?>
-    <section class="product">
-        <main class="container row"><!-- Left Column / Product Images Carousel -->
-<!-- Left Column / Product Images Carousel -->
-<div class="col-md-8">
-    <!-- Imagem Principal em Destaque -->
-    <div class="main-image">
-        <img id="mainImage" src="<?php echo $main_image;?>" alt="Imagem do Produto">
-    </div>
-    <!-- Carrossel de Imagens Adicionais -->
-    <div class="owl-carousel owl-theme">
-        <!-- Adicione a imagem principal ao carrossel -->
-        <div class="item">
-            <img src="<?php echo $main_image;?>" alt="Imagem do Produto" onclick="displayImage('<?php echo $main_image; ?>')">
-        </div>
-        <!-- Loop para exibir imagens adicionais do produto -->
-        <?php foreach ($additional_images as $image): ?>
-            <div class="item">
-                <img src="<?php echo $image; ?>" alt="Imagem do Produto" onclick="displayImage('<?php echo $image; ?>')">
-            </div>
-        <?php endforeach; ?>
-    </div>
-</div>
-
-<script>
-    // Função para exibir uma imagem em destaque ao clicar nas miniaturas do carrossel
-    function displayImage(imageUrl) {
-        document.getElementById('mainImage').src = imageUrl;
+  <?php
+  if ($contains_product) {
+    // Se o produto for encontrado, exiba a seção "product"
+    
+// Verifique se há imagens adicionais
+$has_additional_images = false;
+foreach ($additional_images as $image) {
+    if (!empty($image)) {
+        $has_additional_images = true;
+        break;
     }
-</script>
+}
 
-
-
+// Se houver imagens adicionais, exiba o carrossel de imagens
+if ($has_additional_images) {
+    // Se houver imagens adicionais, exiba o carrossel de imagens
+    ?>
+    <!-- Seção de Produto com Carrossel de Imagens -->
+    <section class="product">
+        <!-- Seção de Produto com Carrossel de Imagens -->
+        <main class="container row">
+            <!-- Left Column / Product Images Carousel -->
+            <div class="col-md-8">
+                <!-- Imagem Principal em Destaque -->
+                <div class="main-image">
+                    <img id="mainImage" src="<?php echo $main_image;?>" alt="Imagem do Produto">
+                </div>
+                <!-- Carrossel de Imagens Adicionais -->
+                <div class="owl-carousel owl-theme">
+                    <!-- Adicione a imagem principal ao carrossel -->
+                    <div class="item">
+                        <img src="<?php echo $main_image;?>" alt="Imagem do Produto" onclick="displayImage('<?php echo $main_image; ?>')">
+                    </div>
+                    <!-- Loop para exibir imagens adicionais do produto -->
+                    <?php foreach ($additional_images as $image): ?>
+                        <?php if (!empty($image)): ?>
+                            <div class="item">
+                                <img src="<?php echo $image; ?>" alt="Imagem do Produto" onclick="displayImage('<?php echo $image; ?>')">
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </div>
+            </div>
             <!-- Right Column / Product Details -->
             <div class="right-column col-md-4">
                 <!-- Product Description -->
                 <div class="product-description">
-                    <span><?php echo $title; ?></span>
-                    <h1><?php echo $description; ?></h1>
+                    <h1><?php echo $title; ?></h1>
+                    <p><?php echo $description; ?></p>
+                </div>
+
+                <!-- Product Pricing -->
+                <div class="product-price">
+                    <p><del>R$ <?php echo $price; ?></del></p>
+                    <p><strong>R$ <?php echo $discount; ?></strong></p>
+                </div>
+                <!-- Botão de Adicionar ao Carrinho -->
+                <a class="cart-btn">Adicionar ao Carrinho</a>
+            </div>
+        </main>
+    </section>
+<?php
+} else {
+    // Se não houver imagens adicionais, exiba apenas a imagem principal
+    ?>
+    <!-- Seção de Produto sem Carrossel de Imagens Adicionais -->
+    <section class="product">
+        <!-- Seção de Produto sem Carrossel de Imagens Adicionais -->
+        <main class="container row">
+            <!-- Left Column / Product Images Carousel -->
+            <div class="col-md-8">
+                <!-- Imagem Principal em Destaque -->
+                <div class="main-image">
+                    <img id="mainImage" src="<?php echo $main_image;?>" alt="Imagem do Produto">
+                </div>
+            </div>
+            <!-- Right Column / Product Details -->
+            <div class="right-column col-md-4">
+                <!-- Product Description -->
+                <div class="product-description">
+                    <h1><?php echo $title; ?></h1>
+                    <p><?php echo $description; ?></p>
                 </div>
 
                 <!-- Product Pricing -->
@@ -254,7 +285,16 @@ if ($conexao) {
             </div>
         </main>
     </section>
-<?php endif; ?>
+<?php
+}}
+else {
+    // Se o produto não for encontrado, exiba a mensagem de erro
+    ?>
+    <h1 style="text-align: center;">Não foi possível encontrar o produto.</h1>
+<?php
+}
+?>
+?>
 
 
     <!-- end why section -->
@@ -326,61 +366,6 @@ if ($conexao) {
   
     </section>
 
-    <div class="modal-container">
-     <div class="ajuste" onclick="closeModal()">
-        <div class="modal">
-          <h2>Detalhes do produto</h2>
-          <hr />
-          <span>
-            <table class="rTable"> 
-              <tbody>
-                  <tr>
-                      <td>Tipo de roupa</td>
-                      <td>Oversized</td>
-                  </tr>
-                  <tr>
-                      <td>Gola</td>
-                      <td>Gola Redonda</td>
-                  </tr>
-                  <tr>
-                    <td>Estilo</td>
-                    <td>Estilo de Rua</td>
-                </tr>
-                <tr>
-                  <td>Tamanho Grande</td>
-                  <td>Sim</td>
-              </tr>
-              <tr>
-                <td>País de Origem</td>
-                <td>Brasil</td>
-            </tr>
-            <tr>
-              <td>Estampa</td>
-              <td>Estampado</td>
-          </tr>
-          <tr>
-            <td>Compimento da Manga</td>
-            <td>Manga Comprida</td>
-        </tr>
-        <tr>
-          <td>Tamanho Do Pacote</td>
-          <td>0.229KG</td>
-      </tr>
-    <tr>
-      <td>Enviado de</td>
-      <td>Bahia</td>
-  </tr>
-  
-              </tbody>
-          </table>
-          </span>
-          <hr />
-          <div class="btns">
-            <button class="btnClose" onclick="closeModal()">Fechar</button>
-          </div>
-        </div>
-     </div>
-    </div>  
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -401,6 +386,32 @@ if ($conexao) {
                     items:5
                 }
             }
+        });
+    });
+</script>
+<script src="../js/script.js" charset="utf-8"></script>
+
+<div class="cart-animation" id="cartAnimation">Item adicionado ao carrinho!</div>
+
+<script>
+    // Função para exibir a animação de confirmação
+    function showCartAnimation() {
+        var cartAnimation = document.getElementById('cartAnimation');
+        cartAnimation.style.display = 'block';
+        setTimeout(function() {
+            cartAnimation.style.display = 'none';
+        }, 2000); // Exibe a animação por 2 segundos
+    }
+
+    // Adicionando ação ao clicar no botão "Adicionar ao Carrinho"
+    document.addEventListener('DOMContentLoaded', function() {
+        var addToCartButtons = document.querySelectorAll('.cart-btn');
+        addToCartButtons.forEach(function(button) {
+            button.addEventListener('click', function(event) {
+                event.preventDefault();
+                showCartAnimation(); // Exibe a animação de confirmação
+                // Aqui você pode adicionar o código para atualizar os cookies com o item adicionado ao carrinho
+            });
         });
     });
 </script>

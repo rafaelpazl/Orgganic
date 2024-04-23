@@ -12,105 +12,11 @@
   <meta name="description" content="" />
   <meta name="author" content="Rafael Paz" />
   <link rel="shortcut icon" href="../images/favicon-32x32.png" type="image/x-icon">
-  <link rel="stylesheet" href="../css/login.css">
 
   <title>
     Orgganic ® - Exale autoestima
   </title>
 
-  <script src="https://accounts.google.com/gsi/client" async></script>
-  <script src="https://cdn.jsdelivr.net/npm/jwt-decode@4.0.0/build/cjs/index.min.js"></script>
-  
-  <script>
-    function handleCredentialResponse(response) {
-      try {
-        const decoded = jwtDecode(response.credential);
-        console.log(decoded)
-        fullName.textContent = decoded.name
-        sub.textContent = decoded.sub
-        given_name.textContent = decoded.given_name
-        family_name.textContent = decoded.family_name
-        email.textContent = decoded.email
-        verifiedEmail.textContent = decoded.email_verified
-        picture.setAttribute("src", decoded.picture)
-      } catch (err) {
-        console.log(err)
-      }
-    }
-
-    window.onload = function () {
-      google.accounts.id.initialize({
-        client_id: "567882892788-vn28hcksqvqv787aude3507g0tfqs5bf.apps.googleusercontent.com",
-        callback: handleCredentialResponse
-      });
-
-      google.accounts.id.renderButton(
-        document.getElementById("buttonDiv"),
-        {
-          theme: "filled_black",
-          size: "large",
-          type: "standard",
-          shape: "pill",
-          text: "continue_with",
-          logo_alignment: "left"
-        }
-      );
-
-      google.accounts.id.prompt();
-    }
-  </script>
-  
-  <!-- end google login -->
-
-<script>
-
-  function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
-    console.log('statusChangeCallback');
-    console.log(response);                   // The current login status of the person.
-    if (response.status === 'connected') {   // Logged into your webpage and Facebook.
-      testAPI();
-    } else {                                 // Not logged into your webpage or we are unable to tell.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this webpage.';
-    }
-  }
-
-
-  function checkLoginState() {               // Called when a person is finished with the Login Button.
-    FB.getLoginStatus(function (response) {   // See the onlogin handler
-      statusChangeCallback(response);
-    });
-  }
-
-
-  window.fbAsyncInit = function () {
-    FB.init({
-      appId: '352699200723852',
-      cookie: true,                     // Enable cookies to allow the server to access the session.
-      xfbml: true,                     // Parse social plugins on this webpage.
-      version: 'v18.0'           // Use this Graph API version for this call.
-    });
-
-
-    FB.getLoginStatus(function (response) {   // Called after the JS SDK has been initialized.
-      statusChangeCallback(response);        // Returns the login status.
-    });
-  };
-
-  function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me?fields=email,name,picture', function (response) {
-      console.log(response);
-      document.getElementById('status').innerHTML =
-        response.name + ', Você está concectado!';
-    });
-  }
-
-</script>
-<!-- Load the JS SDK asynchronously -->
-<script async defer crossorigin="anonymous"
-  src="https://connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v18.0&appId=352699200723852" nonce="oZo6TO9E"></script>
-  <!-- end google facebook -->
   <!-- slider stylesheet -->
   
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
@@ -137,7 +43,9 @@
 
 
 </head>
+<style>
 
+</style>
 <body>
   
   <div class="texthead">
@@ -160,8 +68,7 @@
     <div class="container nav-containter">
      <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
          <div class="container">
-            <a class="navbar-brand " href="index.php"><img class="logo-nav" src="../images/LOGOO.png" height="90px"
-                alt="Orgganic" /></a>
+             <a class="navbar-brand " href="index.php"><img class="logo-nav" src="../images/LOGOO.png" height="90px" alt="Orgganic"/></a>
              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                  Menu
                  <i class="fas fa-bars ms-1"></i>
@@ -170,8 +77,8 @@
              <div class="collapse navbar-collapse" id="navbarResponsive">
                 <div class="float-left">
                    <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0 l-flex">
-                       <li class="nav-item"><a class="nav-link" href="#shop_section">Panos</a></li>
-                       <li class="nav-item"><a class="nav-link" href="#saving_section">OGGNC</a></li>
+                      <li class="nav-item"><a class="nav-link" href="//pages/index.php#shop_section">Panos</a></li>
+                      <li class="nav-item"><a class="nav-link" href="//pages/index.php#saving_section">OGGNC</a></li>
                        <li class="nav-item dropdown">
                          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                            Fala com nóis!
@@ -208,29 +115,48 @@
      </nav>
  </div>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<!-- content -->
 
-  <section class="login">
-    <div class="row">
-      <div class="col-md-6 content-login">
-        <h1>login</h1>
-        <div id="buttonDiv"></div>
-        
-        <fb:login-button class="fb-login-button" data-width="220" data-size="" data-button-type="" data-layout="" data-auto-logout-link="false" scope="public_profile,email" onlogin="checkLoginState();" data-use-continue-as="false">
-        </fb:login-button>
-        <div id="status">
-          
-        </div>
-      </div>
-      <div class="col-md-6 img-login">
-        <div class="img-login-name">
-          <h2>OGGNC</h2>
-        </div>
-      </div>
+   <h1>Seu Carrinho de Compras</h1>
+    <div id="cartItems">
+        <!-- Aqui serão exibidos os itens adicionados ao carrinho -->
     </div>
-  </section>
+    <a href="checkout.php">Finalizar Compra</a> <!-- Link para a página de checkout -->
+    
+    <!-- Seus scripts JavaScript aqui -->
+    <script>
+        // Função para recuperar os itens do carrinho dos cookies
+        function getCartItemsFromCookies() {
+            var cartItems = []; // Inicializa um array vazio para os itens do carrinho
+            var cookies = document.cookie.split(';'); // Divide os cookies em um array
+            cookies.forEach(function(cookie) {
+                var parts = cookie.trim().split('='); // Divide o cookie em nome e valor
+                if (parts[0] === 'cartItems') {
+                    cartItems = JSON.parse(decodeURIComponent(parts[1])); // Decodifica e converte para array
+                }
+            });
+            return cartItems;
+        }
 
-<!-- end content -->
+        // Função para exibir os itens do carrinho na página
+        function displayCartItems() {
+            var cartItems = getCartItemsFromCookies(); // Recupera os itens do carrinho
+            var cartItemsContainer = document.getElementById('cartItems'); // Obtém o contêiner dos itens do carrinho
+            cartItemsContainer.innerHTML = ''; // Limpa o conteúdo do contêiner
+
+            // Itera sobre os itens do carrinho e os adiciona ao contêiner
+            cartItems.forEach(function(item) {
+                var itemElement = document.createElement('div');
+                itemElement.textContent = 'Nome: ' + item.title + ', Preço: R$ ' + item.price;
+                cartItemsContainer.appendChild(itemElement);
+            });
+        }
+
+        // Chama a função para exibir os itens do carrinho quando a página carregar
+        window.addEventListener('load', displayCartItems);
+    </script>
+
+  <!-- end why section -->
+
   <img class="img1" src="../images/banner_footer.jpg" alt="Use Orgganic" width="100%">
   <img class="img2" src="../images/banner_footer1.jpg" alt="Use Orgganic" width="100%">
   

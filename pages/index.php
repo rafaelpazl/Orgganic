@@ -30,10 +30,18 @@
   <link href="../css/responsive.css" rel="stylesheet" />
   <!-- Fonte inter - Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@100;500;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&family=Montserrat:wght@100;500;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
 <!-- Add Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
@@ -44,6 +52,8 @@
 
 </head>
 <style>
+
+
 
 </style>
 <body>
@@ -68,7 +78,7 @@
     <div class="container nav-containter">
       <nav class="navbar navbar-expand-lg navbar-dark" id="mainNav">
         <div class="container">
-          <a class="navbar-brand " href="index.html"><img class="logo-nav" src="../images/LOGOO.png" height="90px"
+          <a class="navbar-brand " href="index.php"><img class="logo-nav" src="../images/LOGOO.png" height="90px"
               alt="Orgganic" /></a>
              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                  Menu
@@ -117,52 +127,50 @@
  </div>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
-   
-    <section class="slider_section">
-      <div class="slider_container">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active carousel-1">
-              <div class="container-fluid">
-                <div class="row">
-                  
-                  <div class="col-md">
-                      <img class="img1" src="../images/banner1.jpg" alt=""/>
-                      <img class="img2" src="../images/banner1.1.jpg" alt=""/>
-                   
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item carousel-2">
-              <div class="container-fluid">
-                <div class="row">
-                  
-                  <div class="col-md">
-                    
-                      <img class="img1" src="../images/banner2.jpg" alt="" />
-                      <img class="img2" src="../images/banner2.2.JPG" alt=""/>
+  <!-- Seção HTML -->
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img id="banner1" class="d-block w-100" src="" alt="First slide">
+    </div>
+    <div class="carousel-item">
+      <img id="banner2" class="d-block w-100" src="" alt="Second slide">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
 
-                  </div>
-                </div>
-              </div>
-            </div>
-           
-          </div>
-          <div class="carousel_btn-box">
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <i class="fa fa-arrow-left" aria-hidden="true"></i>
-              <span class="sr-only">Previous</span>
-            </a>
-            <img src="../images/line.png"/>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <i class="fa fa-arrow-right" aria-hidden="true"></i>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- Script JavaScript -->
+<script>
+  function atualizarImagens() {
+    var larguraPagina = window.innerWidth;
+    var banner1 = document.getElementById('banner1');
+    var banner2 = document.getElementById('banner2');
+    
+    if (larguraPagina < 1000) {
+      banner1.src = "../images/banner1.1.jpg";
+      banner2.src = "../images/banner2.2.jpg";
+    
+    } else {
+      
+      banner1.src = "../images/banner1.jpg";
+      banner2.src = "../images/banner2.jpg";
+    
+    }
+  }
+
+  window.onload = atualizarImagens;
+  window.onresize = atualizarImagens;
+</script>
+
+
 
     <!-- end slider section -->
   </div>
@@ -170,69 +178,79 @@
 
   <!-- shop section -->
 
-  <section class="shop_section layout_padding" id="shop_section">
-    <div class="container">
-      <div class="heading_container heading_center">
-        <h2>
-          Vestuário
-        </h2>
-      </div>
-      <div class="row">
-    
-        <div class="col-sm-6">
-          <div class="box">
-            <a href="products1.html">
-              <div class="img-box">
-                <img class="img1-vestuario" src="../images/3.jpg" alt="">
-                <img class="img2-vestuario" src="../images/4.jpg" alt="">
-              </div>
-              <div class="detail-box">
-                <h6>
-                  As asas que me defendem
-                </h6>
-                <h6>
-                  <span>
-                    R$65,00
-                  </span>
-                </h6>
-              </div>
-              <div class="new">
-                <span>
-                  Novo
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
-       
-        <div class="col-sm-6">
-          <div class="box">
-            <a href="">
-              <div class="img-box">
-                <img class="img1-vestuario" src="../images/11.jpg" alt="">
-                <img class="img2-vestuario" src="../images/12.jpg" alt="">
-              </div>
-              <div class="detail-box">
-                <h6>
-                  No money, No Funny
-                </h6>
-                <h6>
-                  <span>
-                    R$65,00
-                  </span>
-                </h6>
-              </div>
-              <div class="new">
-                <span>
-                  Novo
-                </span>
-              </div>
-            </a>
-          </div>
-        </div>
-      </div>
+  <?php
+include_once('../backend/config.php');
+// Verifique se a conexão com o banco de dados foi estabelecida corretamente
+if ($conexao) {
+    // Consulta SQL para selecionar todos os campos desejados da tabela de produtos
+    $sql = "SELECT id, title, price, discount, main_image FROM product";
+
+    // Preparar e executar a consulta SQL
+    $stmt = mysqli_prepare($conexao, $sql);
+
+    if ($stmt) {
+        // Execute a consulta SQL
+        mysqli_stmt_execute($stmt);
+
+        // Trate os resultados da consulta, por exemplo:
+        $result = mysqli_stmt_get_result($stmt);
+?>
+<section class="shop_section layout_padding" id="shop_section">
+  <h2>OS MELHORES PANOS À SUA DISPOSIÇÃO</h2>
+  <div class="container">
+    <div class="heading_container heading_center">
     </div>
-  </section>
+    <div class="row">
+      <?php
+      // Início do loop PHP
+      while ($row = mysqli_fetch_assoc($result)) {
+      ?> 
+      <div class="col-md-3"> <!-- Defina o número de colunas desejado aqui -->
+        <div class="box">
+          <a href="../pages/products.php?id=<?php echo $row['id']; ?>">
+            <div class="img-box">
+              <!-- Exiba a imagem principal do produto -->
+              <img class="img1-vestuario" src="<?php echo $row['main_image']; ?>" alt="">
+            </div>
+            <div class="detail-box">
+              <!-- Exiba o título do produto -->
+              <h6><?php echo $row['title']; ?></h6>
+              <!-- Exiba o preço do produto com desconto -->
+              <h6>
+                <span>
+                  <del><?php echo "R$" . $row['price']; ?></del> <!-- Preço original riscado -->
+                  <?php echo " R$" . $row['discount']; ?> <!-- Preço com desconto -->
+                </span>
+              </h6>
+            </div>
+            <div class="new">
+              <span>Novo</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <?php
+      }
+        // Feche o statement
+        mysqli_stmt_close($stmt);
+    } else {
+        // Trate o erro ao preparar a consulta
+        echo "Erro ao preparar a consulta: " . mysqli_error($conexao);
+    }
+
+    // Feche a conexão com o banco de dados
+    mysqli_close($conexao);
+} else {
+    // Trate o erro de conexão com o banco de dados
+    echo "Erro ao conectar ao banco de dados: " . mysqli_connect_error();
+}
+?>
+    </div>
+  </div>
+</section>
+
+
+
 
   <!-- end shop section -->
 
@@ -599,7 +617,32 @@ Nosso trampo ta no hype, irmão! É o traje certo pro mano certo, valeu? Descubr
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-  
+   <!-- jQuery and Owl Carousel JS -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+  <script>
+    // Initialize Owl Carousel
+    $('.owl-carousel').owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: false,
+      autoplay: true,
+      autoplayTimeout: 6000,
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 1
+        },
+        1000: {
+          items: 1
+        }
+      }
+    });
+  </script>
+ 
 </body>
 
 </html>

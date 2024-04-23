@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Execute statement
             if (mysqli_stmt_execute($stmt)) {
                 echo "Produto adicionado com sucesso.";
-                // header("Location: ../pages/index.html");
+                // header("Location: ../pages/index.php");
                 exit;
             } else {
                 echo "Erro ao adicionar produto: " . mysqli_error($conn);

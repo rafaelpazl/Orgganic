@@ -1,4 +1,4 @@
-body{
+.shop_section{
     font-family: "Open Sans", sans-serif;
 }
 .shop_section .img-box img {
@@ -78,4 +78,31 @@ body{
   .shop_section .btn-box a:hover {
     background-color: #333333;
   }
-  
+  @media (max-width: 767px) {
+    .col {
+      width: 90%;
+    }
+    .box .img-box img {
+      transition: transform 0.3s ease;
+    }
+    .box:hover .img-box img {
+      transform: scale(1.02); 
+    }
+  }
+
+  /* Estilos para computadores */
+  @media (min-width: 768px) {
+    .col {
+      width: 30%;
+      float: left;
+    }
+
+    .box .img-box img {
+      max-width: 100%; /* Tornar as imagens responsivas */
+      transition: transform 0.3s ease;
+    }
+
+    .box:hover .img-box img {
+      transform: scale(1.05); 
+    }
+  }

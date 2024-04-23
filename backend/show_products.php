@@ -8,37 +8,6 @@ include_once('config.php');
   <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-  <style>
-    /* Estilos para dispositivos móveis */
-    @media (max-width: 767px) {
-      .col {
-        width: 90%;
-      }
-      .box .img-box img {
-        transition: transform 0.3s ease;
-      }
-      .box:hover .img-box img {
-        transform: scale(1.02); 
-      }
-    }
-
-    /* Estilos para computadores */
-    @media (min-width: 768px) {
-      .col {
-        width: 30%;
-        float: left;
-      }
-
-      .box .img-box img {
-        max-width: 100%; /* Tornar as imagens responsivas */
-        transition: transform 0.3s ease;
-      }
-
-      .box:hover .img-box img {
-        transform: scale(1.05); 
-      }
-    }
-  </style>
 </head>
 <body>
 

@@ -210,3 +210,26 @@ body{
 .info_section .info_link-box a {
   display: block!important;
 }
+body{
+  overflow-x: hidden!important;
+}
+.product-price strong{
+  margin-left: 10px;
+}
+.main-image{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+#mainImage{
+  width: 60%;
+}
+.owl-carousel .owl-item img {
+display: block; 
+}
+@media (max-width: 767px) {
+.main-image{
+  display: none;
+}
+}

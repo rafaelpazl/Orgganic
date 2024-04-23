@@ -24,5 +24,9 @@ function closeModal() {
 }
 /* end modal */
  function logotipoHead(){
-        window.location.href = "/pages/index.html";
+        window.location.href = "index.php";
     }
+function displayImage(imageUrl) {
+  document.getElementById('mainImage').src = imageUrl;
+}
+  
