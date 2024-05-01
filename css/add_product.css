@@ -48,12 +48,12 @@ textarea {
 
 .tooltiptext {
   visibility: hidden;
-  width: 120px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
+  width: 130%;
+  background-color: rgb(228, 228, 228);
+  color: #000;
   border-radius: 6px;
   padding: 5px;
+  padding-right: 30px;
   position: absolute;
   z-index: 1;
   bottom: 125%;
@@ -61,15 +61,12 @@ textarea {
   margin-left: -60px;
   opacity: 0;
   transition: opacity 0.3s;
+  border: 1px solid #000;
 }
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
-}
-
-#storage-container, #variable-container {
-  display: none;
 }
 
 #submit-btn {

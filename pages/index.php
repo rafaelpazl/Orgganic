@@ -276,7 +276,7 @@ if ($conexao) {
                 Na Ogganic, o bglh é <strong>representar o corre das quebradas</strong>, ta ligado?
 Nossos panos tem como base o estilo de rua.<br><br>
 A gente exala autoestima em cada mano que usa <strong>Orgganic</strong>, a fita é sobre garantir o rolê no estilo, pegou a visão?<br><br>
-Nosso trampo ta no hype, irmão! É o traje certo pro mano certo, valeu? Descubra o conforto, estilo e atitude em cada trampo da <strong>Ogganic</strong>. É nóis pivete!
+Nosso trampo ta no hype, irmão! É o traje certo pro mano certo, valeu? Descubra o conforto, estilo e atitude em cada trampo da <strong>Ogganic</strong>.
               </p>
               <div class="btn-box btn-box-OGGNC">
                 <a href="https://api.whatsapp.com/send?phone=5575983414324&text=Salvee!%20Curti%20os%20trajes%20mano,%20quero%20saber%20mais" target="_blank" class="btn2">
