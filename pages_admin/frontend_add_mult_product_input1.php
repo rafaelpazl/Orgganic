@@ -45,9 +45,16 @@
             
             <label for="description">Descrição do Produto:</label>
             <textarea type="text" id="description" name="description"></textarea>
+
+            <label for="price">Preço:</label>
+            <input type="number" name="price" step="any" id="price" class="price" required>
+
+            <label for="discount">Preço com desconto:</label>
+            <input type="number" name="discount" step="any" id="discount" class="discount">
+            
             <div class="next-btn">
                 <button id="next-btn">Avançar <span class="material-symbols-outlined"></span></button>
-                <button><a href="manager_products.php" target="_blank">GERENCIAR PRODUTOS</a></button>
+                <button><a href="manager_products.php">GERENCIAR PRODUTOS</a></button>
             </div>
         </form>
     </div>

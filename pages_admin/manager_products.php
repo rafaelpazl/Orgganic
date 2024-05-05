@@ -131,8 +131,8 @@
     </div>
 
     <div class="add-product-buttons">
-        <a class="add-unit-button" href="frontend_add_unit_product_input.php" target="_blank" rel="noopener noreferrer">ADICIONAR PRODUTO SEM VARIAÇÕES</a>
-        <a class="add-mult-button" href="frontend_add_mult_product_input1.php" target="_blank" rel="noopener noreferrer">ADICIONAR PRODUTO COM VARIAÇÕES</a>
+        <a class="add-unit-button" href="frontend_add_unit_product_input.php" rel="noopener noreferrer">ADICIONAR PRODUTO SEM VARIAÇÕES</a>
+        <a class="add-mult-button" href="frontend_add_mult_product_input1.php" rel="noopener noreferrer">ADICIONAR PRODUTO COM VARIAÇÕES</a>
     </div>
 </body>
 </html>

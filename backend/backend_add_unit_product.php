@@ -1,18 +1,9 @@
 <?php
 include_once('config.php');
 
-// Function to create a directory for a user if it doesn't exist
-function createUserDirectory($userId) {
-    $directory = "../uploads/" . $userId . "/";
-    if (!file_exists($directory)) {
-        mkdir($directory, 0777, true);
-    }
-    return $directory;
-}
-
 // Function to create a directory for product images
-function createProductDirectory($userId, $productId) {
-    $directory = "../uploads/" . $userId . "/" . $productId . "/";
+function createProductDirectory($productId) {
+    $directory = "../uploads/" . $productId . "/";
     if (!file_exists($directory)) {
         mkdir($directory, 0777, true);
     }
@@ -47,8 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $gtin = isset($_POST['gtin']) ? $_POST['gtin'] : '';
         $qnt_storage = isset($_POST['storage']) ? $_POST['storage'] : '';
 
-        // Create directory for main product images
-        $productDirectory = createProductDirectory($userId, $productId);
+        // Create directory for product images
+        $productDirectory = createProductDirectory($productId);
 
         // Move main image to product directory
         $mainImage = isset($_FILES['picture__input']) ? moveUploadedFile($_FILES['picture__input'], $productDirectory) : null;
@@ -66,19 +57,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
 
-
         // Preparar e executar a consulta SQL
         $sql = "INSERT INTO product (id, title, description, price, discount, gtin, qnt_storage, main_image, additional_images, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($conn, $sql);
 
         if ($stmt) {
-
             // Prepare additional images as a comma-separated string
-        $additionalImagesStr = implode(',', $additionalImages);
-            
-                    // Bind parameters
-            mysqli_stmt_bind_param($stmt, "sssddsdsss", $productId, $title, $description, $price, $discount, $gtin, $qnt_storage, $mainImage, $additionalImagesStr, $userId);
+            $additionalImagesStr = implode(',', $additionalImages);
 
+            // Bind parameters
+            mysqli_stmt_bind_param($stmt, "sssddsdsss", $productId, $title, $description, $price, $discount, $gtin, $qnt_storage, $mainImage, $additionalImagesStr, $userId);
 
             // Execute statement
             if (mysqli_stmt_execute($stmt)) {

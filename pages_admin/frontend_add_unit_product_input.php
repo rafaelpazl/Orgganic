@@ -58,7 +58,7 @@
                 <input type="number" name="storage" id="storage">
             </div>
             <button id="submit-btn">Enviar</button>
-            <button><a href="manager_products.php" target="_blank">GERENCIAR PRODUTOS</a></button>
+            <button><a href="manager_products.php">GERENCIAR PRODUTOS</a></button>
         </form>
     </div>
     <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>

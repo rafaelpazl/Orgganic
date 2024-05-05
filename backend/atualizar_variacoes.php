@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Update the variation data in the database
             $updateVariationSql = "UPDATE variation SET category = ?, variation = ?, price = ?, discount = ?, gtin = ?, storage = ? WHERE product_id = ? AND uuid = ?";
             $stmt = mysqli_prepare($conn, $updateVariationSql);
-            mysqli_stmt_bind_param($stmt, "ssddssss", $category, $variation, $price, $discount, $gtin, $storage, $productId, $uuid);
+            mysqli_stmt_bind_param($stmt, "ssssssss", $category, $variation, $price, $discount, $gtin, $storage, $productId, $uuid);
 
             // Execute the update statement
             if (mysqli_stmt_execute($stmt)) {

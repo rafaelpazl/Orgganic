@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalhes do Produto</title>
   <style>
+   
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
@@ -131,7 +132,6 @@
             text-decoration: none;
         }
         .button-add-variation, .button-voltar{
-            
             max-width: 200px;
             margin: 5px;
         }
@@ -141,7 +141,36 @@
         .button-voltar{
             background-color: #28a745;
         }
-        
+        #imageModal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50%;
+            height: 50%;
+            background-color: #fff;
+            padding: 10%;
+            border-radius: 15px;
+            border: 3px solid black;
+            z-index: 999; /* Ensure modal is above other content */
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .modal-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .close {
+            align-self: flex-end;
+            cursor: pointer;
+        }
+        .delete-button, .save-button {
+            margin-top: 10px;
+        }
+    
     </style>
 </head>
 <body>
@@ -193,14 +222,14 @@
                     echo "<tbody>";
 
                         echo "<tr>";
-                        echo "<td><img src='$main_image' alt='Variation Image'></td>";
+                        echo "<td><img class='product-images' src='$main_image' alt='Variation Image'></td>";
                         echo "<td><input type='text' name='title' value='$title'></td>";
                         echo "<td><input type='text' name='description' value='$description'></td>";
-                        echo "<td><input type='text' name='price' value='" . number_format($price, 2, ',', '.') . "'></td>";
-                        echo "<td><input type='text' name='discount' value='" . number_format($discount, 2, ',', '.') . "'></td>";
+                        echo "<td><input type='text' name='price' value='$price'></td>";
+                        echo "<td><input type='text' name='discount' value='$discount'></td>";
                         echo "<td><input type='text' name='gtin' value='$gtin'></td>";
                         echo "<td><input type='text' name='qnt_storage' value='$qnt_storage'></td>";
-                        echo "<td><a class='button-delete-variation' href='../backend/delete_product.php?productId=$productId'>EXCLUIR</a></td>";
+                        echo "<td><a class='button-delete-variation' href='../backend/delete_product.php?id=$productId'>EXCLUIR</a></td>";
                         echo "</tr>";
 
                     echo "</tbody>";
@@ -251,7 +280,7 @@
                     echo "<tbody>";
                     do {
                         echo "<tr>";
-                        echo "<td><img src='$main_image' alt='Variation Image'></td>";
+                        echo "<td><img class='product-images' src='$main_image' alt='Variation Image'></td>";
                         echo "<td><input type='text' name='category[]' value='$category'></td>";
                         echo "<input type='text' name='uuid[]' class='uuid' value='$uuid'>";
                         echo "<td><input type='text' name='variation[]' value='$variation'></td>";
@@ -283,5 +312,5 @@
             }
         ?>
     </div>
-</body>
+</body> 
 </html>

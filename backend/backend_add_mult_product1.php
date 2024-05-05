@@ -43,6 +43,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $title = isset($_POST['title-product']) ? $_POST['title-product'] : '';
         $description = isset($_POST['description']) ? $_POST['description'] : '';
         $variations = isset($_POST['variations']) ? $_POST['variations'] : '';
+        $price = isset($_POST['price']) ? $_POST['price'] : '';
+        $discount = isset($_POST['discount']) ? $_POST['discount'] : '';
+        
         // Create directory for main product images
         $productDirectory = createProductDirectory($userId, $productId);
 
@@ -64,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         // Preparar e executar a consulta SQL
-        $sql = "INSERT INTO product (id, title, description, variations, main_image, additional_images, user_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO product (id, title, description, variations, price, discount, main_image, additional_images, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = mysqli_prepare($conn, $sql);
 
         if ($stmt) {
@@ -73,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $additionalImagesStr = implode(',', $additionalImages);
             echo $variations;
             // Bind parameters
-                mysqli_stmt_bind_param($stmt, "sssssss", $productId, $title, $description, $variations, $mainImage, $additionalImagesStr, $userId);
+                mysqli_stmt_bind_param($stmt, "sssssssss", $productId, $title, $description, $price, $discount, $variations, $mainImage, $additionalImagesStr, $userId);
 
 
             // Execute statement
